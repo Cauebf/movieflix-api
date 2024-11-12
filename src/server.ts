@@ -1,15 +1,7 @@
-import express from 'express';
-import { PrismaClient } from '@prisma/client';
+import app from './app';
 
-const port = 3000;
-const app = express();
-const prisma = new PrismaClient();
+const PORT = process.env.PORT || 3000;
 
-app.get('/movies', async (req, res) => {
-    const movies = await prisma.movie.findMany();
-    res.json(movies)
-});
-
-app.listen(port, () => {
-    console.log(`Listening on port ${port}`);
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
 });
