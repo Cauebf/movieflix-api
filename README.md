@@ -1,76 +1,156 @@
-# MovieFlix API
+# MovieFlix API 🎬📽️
 
-This project is a RESTful API developed with Node.js, Express, TypeScript, and Prisma. It allows managing movies, including operations to retrieve, create, update, and delete movies, as well as listing all movies by genre. The API also provides interactive documentation using Swagger.
+A RESTful API for managing movie data — including genres, languages, Oscar wins, and release dates — built with **TypeScript**, **Express**, and **Prisma ORM**.
 
-## Features
+Includes **Swagger UI** documentation, rate limiting, and input sanitization for secure and maintainable API development.
 
--   **Movie CRUD**: Retrieve, add, edit, and delete movies.
--   **Filters**: Retrieve movies by genre.
--   **Interactive Documentation**: The API is documented with Swagger, accessible at the `/api-docs` endpoint.
--   **Security**: Protection against attacks using Helmet, CORS, and XSS.
--   **Rate Limiting**: Request rate limiting per IP using Express Rate Limit.
+## 📌 Table of Contents
 
-## Technologies Used
+-   [MovieFlix API 🎬📽️](#movieflix-api-️)
+    -   [📌 Table of Contents](#-table-of-contents)
+    -   [🌐 Overview](#-overview)
+    -   [⚙️ Features](#️-features)
+    -   [💻 Technologies Used](#-technologies-used)
+    -   [🗝️ Key Takeaways](#️-key-takeaways)
+    -   [📁 Project Structure](#-project-structure)
+    -   [🚀 How to Run the Project](#-how-to-run-the-project)
+    -   [📄 API Documentation](#-api-documentation)
+    -   [🤝 Contributing](#-contributing)
+    -   [💬 Contact](#-contact)
 
--   **Node.js**: JavaScript runtime environment for the server.
--   **Express**: Framework for building RESTful APIs.
--   **TypeScript**: A superset of JavaScript that adds static typing.
--   **Prisma**: ORM to simplify database access.
--   **Swagger**: Tool for generating interactive API documentation.
--   **Helmet**: Security middleware for Express.
--   **xss-clean**: Middleware to protect against XSS attacks.
--   **express-rate-limit**: Rate limiting for requests per IP.
--   **PostgreSQL**: Relational database used to store movies, genres, and languages.
+## 🌐 Overview
 
-## Prerequisites
+**MovieFlix API** provides a backend service for managing movie records with structured relationships for genres and languages.  
+This project is built for learning, experimentation, and as a solid base for building scalable backend systems.
 
-Before running the project, you need to have the following tools installed:
+Main capabilities include:
 
--   [Node.js](https://nodejs.org/)
--   [npm](https://www.npmjs.com/)
--   [Prisma CLI](https://www.prisma.io/docs/getting-started/setup-prisma) (if not installed globally, can be used via `npx`).
+-   Retrieve all movies or by genre
+-   View detailed movie information
+-   Create, update, and delete movies
+-   Handle related genre/language data
+-   Auto-generated API docs via Swagger
 
-## Installation
+## ⚙️ Features
 
-1. **Clone the repository**
+-   ✅ **CRUD operations** for movies
+-   🧠 **Prisma ORM** for database management
+-   🛡️ **Security middleware** (`helmet`, `xss-clean`, `express-rate-limit`)
+-   🧪 **Centralized error handling**
+-   🌐 **Swagger UI API documentation**
+-   🐘 **PostgreSQL** as database
+-   🧹 Clean, modular TypeScript code
+-   📁 Scalable and easy-to-extend architecture
+
+## 💻 Technologies Used
+
+-   [Express.js](https://expressjs.com/)
+-   [TypeScript](https://www.typescriptlang.org/)
+-   [Prisma ORM](https://www.prisma.io/)
+-   [PostgreSQL](https://www.postgresql.org/)
+-   [Swagger UI](https://swagger.io/tools/swagger-ui/)
+-   [dotenv](https://github.com/motdotla/dotenv)
+-   [helmet](https://helmetjs.github.io/)
+-   [xss-clean](https://www.npmjs.com/package/xss-clean)
+-   [express-rate-limit](https://www.npmjs.com/package/express-rate-limit)
+
+## 🗝️ Key Takeaways
+
+1. **Clean REST API** structure using Express + TypeScript
+2. **Prisma** data modeling and querying
+3. **Error-handling middleware** that follows best practices
+4. **Swagger-based API docs** with real-time testing
+5. **Scalable and secure backend foundation**
+
+## 📁 Project Structure
+
+```bash
+movieflix-api/
+├── prisma/
+│ └── schema.prisma # Data models (Movie, Genre, Language)
+├── src/
+│ ├── routes/ # Route handlers (e.g., movies.ts)
+│ ├── middleware/ # Error & not-found middleware
+│ ├── errors/ # Custom error classes
+│ ├── server.ts # Express app setup
+│ └── ...
+├── swagger.json # Swagger UI config
+├── package.json
+├── tsconfig.json
+└── ...
+```
+
+## 🚀 How to Run the Project
+
+1.  **Clone the repository**:
 
     ```bash
-    git clone https://github.com/Cauebf/movieflix-api
+    git clone https://github.com/Cauebf/movieflix-api.git
     cd movieflix-api
     ```
 
-2. **Install dependencies**
+2.  **Install dependencies**:
 
     ```bash
     npm install
     ```
 
-3. **Database Configuration**: Create a .env file in the root of the project and add the DATABASE_URL variable with your PostgreSQL database connection URL:
+3.  **Set up environment variables**:
 
-    ```bash
-    DATABASE_URL="postgresql://username:password@localhost:5432/movieflix?schema=public"
+    Create a `.env` file in the root directory and add:
+
+    ```env
+    DATABASE_URL=postgresql://USER:PASSWORD@HOST:PORT/DATABASE
     ```
 
-4. **Generate Prisma Client**: If the Prisma client is not generated yet, run the following command:
+4.  **Set up Prisma and the database**:
 
     ```bash
     npx prisma generate
+    npx prisma migrate dev --name init
     ```
 
-5. **Run Migrations**: If you haven't run the migrations yet, execute the following to set up the database:
-
-    ```bash
-    npx prisma migrate dev
-    ```
-
-6. **Run the Project**: To start the server, run:
+5.  **Start the development server**:
 
     ```bash
     npm run dev
     ```
 
-The server will be available at http://localhost:3000.
+    > The server will run on `http://localhost:3000` by default.
 
-## Contributing
+6.  **Build the app for production**:
 
-If you would like to contribute to this project, feel free to open issues or submit pull requests.
+    ```bash
+    npm run build
+    npm start
+    ```
+
+## 📄 API Documentation
+
+-   Visit: `http://localhost:3000/api-docs`
+-   Auto-generated via **Swagger UI**
+-   Test endpoints live within the docs
+
+**Sample Routes**:
+
+-   `GET /api/v1/movies` → All movies
+-   `GET /api/v1/movies?genre=Action` → Filter by genre
+-   `GET /api/v1/movies/:id` → Movie by ID
+-   `POST /api/v1/movies` → Create movie
+-   `PUT /api/v1/movies/:id` → Update movie
+-   `DELETE /api/v1/movies/:id` → Delete movie
+
+## 🤝 Contributing
+
+Contributions are welcome! Feel free to open issues or pull requests for any improvements or bug fixes.
+
+## 💬 Contact
+
+For any inquiries or collaboration opportunities, feel free to reach out via:
+
+[![Gmail](https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:cauebrolesef@gmail.com)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/cauebrolesef/)
+[![Instagram](https://img.shields.io/badge/-Instagram-%23E4405F?style=for-the-badge&logo=instagram&logoColor=white)](https://www.instagram.com/cauebf_/)
+[![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Cauebf)
+
+<p align="right">(<a href="#movieflix-api-">back to top</a>)</p>
