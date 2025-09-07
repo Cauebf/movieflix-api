@@ -118,13 +118,6 @@ movieflix-api/
 
     > The server will run on `http://localhost:3000` by default.
 
-6.  **Build the app for production**:
-
-    ```bash
-    npm run build
-    npm start
-    ```
-
 ## 📄 API Documentation
 
 -   Visit: `http://localhost:3000/api-docs`
