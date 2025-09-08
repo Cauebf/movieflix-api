@@ -11,10 +11,10 @@ const app = express();
 
 const moviesRouter = require('./routes/movies');
 
-import swaggerUi from 'swagger-ui-express';
-import swaggerDocument from '../swagger.json';
-import { errorHandlerMiddleware } from './middleware/error-handler';
-import { notFoundMiddleware } from './middleware/not-found';
+const swaggerUi = require('swagger-ui-express');
+const swaggerDocument = require('../swagger.json');
+const { errorHandlerMiddleware } = require('./middleware/error-handler');
+const { notFoundMiddleware } = require('./middleware/not-found');
 
 app.set('trust proxy', 1);
 app.use(

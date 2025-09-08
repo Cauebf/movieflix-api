@@ -44,15 +44,15 @@ Main capabilities include:
 
 ## 💻 Technologies Used
 
--   [Express.js](https://expressjs.com/)
--   [TypeScript](https://www.typescriptlang.org/)
--   [Prisma ORM](https://www.prisma.io/)
--   [PostgreSQL](https://www.postgresql.org/)
--   [Swagger UI](https://swagger.io/tools/swagger-ui/)
--   [dotenv](https://github.com/motdotla/dotenv)
--   [helmet](https://helmetjs.github.io/)
--   [xss-clean](https://www.npmjs.com/package/xss-clean)
--   [express-rate-limit](https://www.npmjs.com/package/express-rate-limit)
+-   [**Express.js**](https://expressjs.com/) — Minimalist web framework for Node.js, used to create RESTful APIs.
+-   [**TypeScript**](https://www.typescriptlang.org/) — Strongly typed superset of JavaScript that improves code quality and developer experience.
+-   [**Prisma ORM**](https://www.prisma.io/) — Modern ORM that simplifies database access and migrations using a type-safe query builder.
+-   [**PostgreSQL**](https://www.postgresql.org/) — Powerful open-source relational database system used to store movie, genre, and language data.
+-   [**Swagger UI**](https://swagger.io/tools/swagger-ui/) — Tool for generating interactive API documentation and testing endpoints.
+-   [**dotenv**](https://github.com/motdotla/dotenv) — Loads environment variables from a `.env` file into the application.
+-   [**helmet**](https://helmetjs.github.io/) — Middleware that adds security headers to protect the app from well-known vulnerabilities.
+-   [**xss-clean**](https://www.npmjs.com/package/xss-clean) — Sanitizes user input to prevent cross-site scripting (XSS) attacks.
+-   [**express-rate-limit**](https://www.npmjs.com/package/express-rate-limit) — Limits repeated requests to public APIs to improve security.
 
 ## 🗝️ Key Takeaways
 
@@ -117,6 +117,13 @@ movieflix-api/
     ```
 
     > The server will run on `http://localhost:3000` by default.
+
+6.  **Build the app for production**:
+
+    ```bash
+    npm run build
+    npm start
+    ```
 
 ## 📄 API Documentation
 
